@@ -3,8 +3,14 @@ nav.navbar.navbar-default
     .navbar-header
       a.navbar-brand(href='/') Raive
     ul.nav.navbar-nav.navbar-right
-      li
-        a(href='/signup') Sign Up
-      li
-        a(href='/signin') Sign In
+      if currentUser
+        li
+          a(href='#') #{currentUser.local.email}
+        li
+          a(href='/signout') Sign Out
+      else
+        li
+          a(href='/signup') Sign Up
+        li
+          a(href='/signin') Sign In
 

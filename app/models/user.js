@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
-// require any nested documents as well
+var passport = require('passport');
 
 var UserSchema = mongoose.Schema({
   local: {

@@ -24,7 +24,7 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(logger('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -37,6 +37,12 @@ app.use(session({ secret: 'raive is awesome', resave: true, saveUninitialized: f
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+require('./config/passport/passport')(passport);
+app.use(function (req, res, next) {
+  global.currentUser = req.user;
+  next();
+});
 
 app.use('/', index);
 app.use('/users', users);
