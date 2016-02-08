@@ -1,17 +1,9 @@
 // Strategies
-var localSignupStrategy = require('./local-signup-strategy');
-var localLoginStrategy  = require('./local-login-strategy');
 var facebookStrategy    = require('passport-facebook').Strategy;
-
 var User = require('../../app/models/user');
-
 var configAuth = require('./auth');
 
 module.exports = function(passport) {
-
-  // Strategies
-  passport.use('local-signup', localSignupStrategy);
-  passport.use('local-login' , localLoginStrategy);
 
   // Session Support
   passport.serializeUser(function(user, callback) {
