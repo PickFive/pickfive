@@ -17,6 +17,7 @@
     "jade": "~1.11.0",
     "method-override": "^2.3.5",
     "mongoose": "Automattic/mongoose",
+    "mongoose-findorcreate": "^0.1.2",
     "morgan": "~1.6.1",
     "node-sass-middleware": "0.8.0",
     "passport": "^0.3.2",
