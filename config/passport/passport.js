@@ -4,8 +4,6 @@ var localLoginStrategy  = require('./local-login-strategy');
 
 var User = require('../../app/models/user');
 
-var configAuth = require('./auth');
-
 module.exports = function(passport) {
 
   // Strategies
