@@ -5,7 +5,7 @@ nav.navbar.navbar-default
     ul.nav.navbar-nav.navbar-right
       if currentUser
         li
-          a(href='#') #{currentUser.local.email}
+          a(href='#') #{currentUser.facebook.email}
         li
           a(href='/signout') Sign Out
       else
