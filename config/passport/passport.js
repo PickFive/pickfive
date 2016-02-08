@@ -33,7 +33,7 @@ module.exports = function(passport) {
 
   function (token, refreshToken, profile, done) {
     User.findOrCreate({facebookId: profile.id}, function (err, user) {
-      return cd(err, user);
+      return done(err, user);
     });
   }));
 };
