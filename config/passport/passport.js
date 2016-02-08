@@ -1,8 +1,13 @@
+// Strategies
 var localSignupStrategy = require('./local-signup-strategy');
 var localLoginStrategy  = require('./local-login-strategy');
+var facebookStrategy    = require('passport-facebook').Strategy;
+
 var User = require('../../app/models/user');
 
-var passportConfig = function(passport) {
+var configAuth = require('./auth');
+
+module.exports = function(passport) {
 
   // Strategies
   passport.use('local-signup', localSignupStrategy);
@@ -18,6 +23,40 @@ var passportConfig = function(passport) {
       callback(err, user);
     });
   });
-};
 
-module.exports = passportConfig;
+  // Facebook
+  passport.use(new facebookStrategy({
+    clientID: configAuth.facebookAuth.clientID,
+    clientSecret: configAuth.facebookAuth.clientSecret,
+    callbackURL: configAuth.facebookAuth.callbackURL
+  },
+
+  function (token, refreshToken, profile, done) {
+    process.nextTick(function () {
+      User.findOne({'facebook.id': profile.id}, function (err, user) {
+        if (err) {
+          return done(err);
+        }
+
+        if (user) {
+          return done(null, user);
+        } else {
+          var newUser = new User();
+          newUser.facebook.id = profile.id;
+          newuser.facebook.token = token;
+          newUser.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
+          newUser.facebook.email = profile.emails[0].value;
+
+          newUser.save(function (err) {
+            if (err) {
+              throw err;
+            }
+
+            return done(null, newUser);
+
+          });
+        }
+      });
+    });
+  }));
+};
