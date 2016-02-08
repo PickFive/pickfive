@@ -3,6 +3,7 @@ module.exports = {
    'clientID': process.env.FACEBOOK_APP_ID,
    'clientSecret': process.env.FACEBOOK_APP_SECRET,
    'callbackURL': 'https://raive.herokuapp.com/auth/facebook/callback',
+   'passReqToCallback': true,
    'profileFields': ['id', 'email', 'name']
  } 
 }
