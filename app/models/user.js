@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var findOrCreate = require('mongoose-findorcreate');
 var bcrypt = require('bcrypt-nodejs');
 var passport = require('passport');
 
@@ -14,6 +15,8 @@ var UserSchema = mongoose.Schema({
     name: {type: String ,required: true}
   }
 });
+
+UserSchema.plugin(findOrCreate);
 
 UserSchema.methods.encrypt = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
