@@ -43,28 +43,4 @@ router.get('/signout', function (req, res, next) {
   res.redirect('/');
 });
 
-router.get('/auth/facebook', function (req, res, next) {
-  var signUpStrategy = passport.authenticate('facebook', {
-    scope: ['email'],
-    successRedirect: '/',
-    successFlash: true,
-    failureRedirect: '/',
-    failureFlash: true
-  });
-
-  return signUpStrategy(req, res, next);
-});
-
-
-router.get('/auth/facebook/callback', function (req, res, next) {
-  var signInStrategy = passport.authenticate('facebook', {
-    successRedirect: '/',
-    failureRedirect: '/signin',
-    failureFlash: true,
-    successFlash: true
-  });
-
-  return signInStrategy(req, res, next);
-});
-
 module.exports = router;
