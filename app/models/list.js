@@ -4,7 +4,7 @@ var comment = new mongoose.Schema({
     date: { Date },
     body: { String },
     owner: [{
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: 'User'
     }]
 });
@@ -21,7 +21,7 @@ var listSchema = new mongoose.Schema({
     votes: { Number },
     comments: [comment],
     owner: {
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: 'User'
     }
 

@@ -13,11 +13,11 @@ var UserSchema = mongoose.Schema({
   },
   image: String,
   lists: [{
-    type: mongoose.Schema.Type.ObjectId,
+    type: mongoose.Schema.ObjectId,
     ref: 'List'
   }],
   comments: [{
-    type: mongoose.Schema.Type.ObjectId,
+    type: mongoose.Schema.ObjectId,
     ref: 'List'
   }]
 });
