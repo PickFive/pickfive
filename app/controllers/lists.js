@@ -16,7 +16,7 @@ module.exports = (model) => {
   }
 
   //new
-  const new = (req, res, next) => {
+  const newForm = (req, res, next) => {
     var list = {
       title: '',
       listItems: [],
@@ -24,6 +24,11 @@ module.exports = (model) => {
       votes: 0,
     }
     res.render('lists/new', {list: list});
+  }
+
+  return {
+    index: index,
+    newForm: newForm
   }
 }
 
