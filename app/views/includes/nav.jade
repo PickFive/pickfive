@@ -4,6 +4,8 @@ nav.navbar.navbar-default.navbar-fixed-top
       a.navbar-brand(href='/') Raive
     ul.nav.navbar-nav.navbar-right
       if currentUser
+        li.navbar-left
+          a(href='/lists') My Lists
         li
           a(href='#') #{currentUser.local.email}
         li
