@@ -14,7 +14,7 @@ var flash = require('connect-flash');
 
 // our controllers
 var index = require('./app/controllers/index');
-var users = require('./app/controllers/users');
+var users = require('./app/routers/users');
 var listsRouter = require('./app/controllers/lists');
 
 var app = express();
