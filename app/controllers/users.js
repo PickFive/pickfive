@@ -1,6 +1,14 @@
 'use strict';
 
 module.exports = (model) => {
+
+  /**
+   * Stores the lowercased name of the current model
+   *
+   * Used for retrieving template files
+   */
+  const modelName = model.modelName.toLowerCase() + 's';
+
   /**
    * @verb:   GET
    * @method: index
@@ -9,8 +17,8 @@ module.exports = (model) => {
    */
   const index = (req, res, next) =>
     model.find()
-      .then((users) => {
-        res.json(users);
+      .then((docs) => {
+        res.render(`${modelName}/index`, {data: docs});
       }).catch((err) => {
         next(err);
       });
@@ -23,8 +31,8 @@ module.exports = (model) => {
    */
   const show = (req, res, next) =>
     model.findById(req.params.id)
-      .then((user) => {
-        res.json(user);
+      .then((doc) => {
+        res.json(doc);
       }).catch((err) => {
         next(err);
       });
@@ -77,8 +85,8 @@ module.exports = (model) => {
    */
   const update = (req, res, next) =>
     model.findByIdAndUpdate(req.params.id, req.body, {new: true})
-      .then((user) => {
-        res.json(user);
+      .then((doc) => {
+        res.json(doc);
       }).catch((err) => {
         next(err);
       });
