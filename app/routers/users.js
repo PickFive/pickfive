@@ -1,24 +1,22 @@
 'use strict';
 
 let User = require('../models/user');
+let UserController = require('../controllers/users')(User);
 
-/**
- * @router: Express Router instance
- * @controller: Instantiated controller
- */
-const RestfulRouter = (router, controller) => {
-  router.get(   '/',         controller.index);
-  router.get(   '/new',      controller.newForm);
-  router.get(   '/:id',      controller.show);
-  router.post(  '/',         controller.create);
-  router.get(   '/:id/edit', controller.edit);
-  router.put(   '/:id',      controller.update);
-  router.delete('/:id',      controller.destroy);
+let RestfulRouter = require('express-restful-router');
 
-  return router;
-}
+let router = new RestfulRouter({
+  resource: 'user',
 
-module.exports = RestfulRouter(
-    require('express').Router(),
-    require('../controllers/users')(User)
-);
+  only: [
+    'index',
+    'show'
+  ],
+
+  controller: {
+    index: UserController.index,
+    show: UserController.show
+  }
+});
+
+module.exports = router;
