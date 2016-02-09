@@ -1,6 +1,4 @@
-var express = require('express');
-var router = express.Router();
-var List = require('../models/list');
+'use strict';
 
 module.exports = (model) => {
 
@@ -21,109 +19,65 @@ module.exports = (model) => {
       title: '',
       listItems: [],
       catagory: '',
-      votes: 0,
+      votes: 0
     }
     res.render('lists/new', {list: list});
   }
-
-  return {
-    index: index,
-    newForm: newForm
-  }
-}
 
   //create
   const create = (req, res, next) => {
     model.save(req.body)
     .then((newList) => {
-      res.redirect('lists')
+      res.redirect('lists');
     }).catch((err) => {
-      next(err)
+      next(err);
     })
-}
+  }
 
   //edit
   const edit = (req, res, next) => {
     model.findById(req.params.id)
     .then((list) => {
-      res.render('lists/:id/edit')
+      res.render('lists/edit');
     })
   }
+
+  const show = (req, res, next) => 
+    model.findById(req.params.id)
+      .then((list) => {
+        res.render('lists/show');
+      }).catch((err) => {
+        next(err);
+      });
 
   //update
   const update = (req, res, next) => {
     model.findByAndUpdate(req.params.id, req.body, {new: true})
     .then((updatedList) => {
-      res.redirect('lists')
+      res.redirect('lists');
     }).catch((err) => {
-      next(err)
+      next(err);
     })
   }
 
   //delete
-  const delete = (req, res, next) => {
+  const destroy = (req, res, next) => {
     model.findByIdAndRemove(req.params.id)
-    .then(() => {
-      res.redirect('lists')
-    }).catch((err) => {
-      next(err)
-    })
-    }
+      .then(() => {
+        res.redirect('lists');
+      }).catch((err) => {
+        next(err);
+      })
   }
 
+  return {
+    index: index,
+    newForm: newForm,
+    create: create,
+    edit: edit,
+    destroy: destroy,
+    update: update,
+    show: show
+  }
+}
 
-
-
-//create
-// router.post('/', function(req, res, next) {
-//   var list = new List({
-//     title: req.body.title,
-//     listItems: [],
-//     catagory: req.body.catagory
-//   });
-
-//   list.save()
-//     .then(function(saved) {
-//       res.redirect('/lists');
-//     }, function(err) {
-//       return next(err);
-//     });
-// });
-
-// //edit
-// router.get('/:id/edit', function(req, res, next) {
-//   List.findById(req.params.id)
-//     .then(function(list) {
-//       res.render('lists/edit', { list: list });
-//     }, function(err) {
-//       return next(err);
-//     });
-// });
-
-// //update
-// router.put('/:id', function(req, res, next) {
-//   List.findById(req.params.id)
-//     .then(function(list) {
-//       list.title = req.body.title;
-//       list.listItems = [];
-//       list.catagory = req.body.catagory;
-//       return list.save();
-//     })
-//     .then(function(saved) {
-//       res.redirect('/lists');
-//     }, function(err) {
-//       return next(err);
-//     });
-// });
-
-// //delete
-// router.delete('/:id', function(req, res, next) {
-//   List.findByIdAndRemove(req.params.id)
-//     .then(function() {
-//       res.redirect('/lists');
-//     }, function(err) {
-//       return next(err);
-//     });
-// });
-
-//m odule.exports = router;
