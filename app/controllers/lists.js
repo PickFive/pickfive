@@ -20,7 +20,7 @@ var list = {
   catagory: '',
   votes: 0,
   }
-  res.render('/lists/new', {list: list});
+  res.render('lists/new', {list: list});
 });
 
 //create
