@@ -20,7 +20,7 @@ router.get('/new', function(req, res, next) {
     catagory: '',
     votes: 0,
   }
-  res.render('/lists/new', {list: list});
+  res.render('lists/new', {list: list});
 });
 
 //create

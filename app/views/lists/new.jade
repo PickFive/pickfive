@@ -1,3 +1,32 @@
 extends ../layout
 
-h1 New List
+block content
+  h2 Create a New List
+
+  form(action='/new', method='post')
+    .form-group
+      label(for='title') Title
+      input.form-control(type='title', name='title')
+
+    .form-group
+      label(for='item1') #1
+      input.form-control(type='item1', name='item1')
+
+    .form-group
+      label(for='item2') #2
+      input.form-control(type='item2', name='item2')
+
+    .form-group
+      label(for='item3') #3
+      input.form-control(type='item3', name='item3')
+
+    .form-group
+      label(for='item4') #4
+      input.form-control(type='item4', name='item4')
+
+    .form-group
+      label(for='item5') #5
+      input.form-control(type='item5', name='item5')
+
+    .form-group
+      button.btn.btn-primary.btn-success(type='submit') Submit!
