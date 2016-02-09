@@ -10,7 +10,16 @@ var UserSchema = mongoose.Schema({
   facebook: {
     id: String,
     email: String
-  }
+  },
+  image: String,
+  lists: [{
+    type: mongoose.Schema.Type.ObjectId,
+    ref: 'List'
+  }],
+  comments: [{
+    type: mongoose.Schema.Type.ObjectId,
+    ref: 'List'
+  }]
 });
 
 UserSchema.methods.encrypt = function (password) {
