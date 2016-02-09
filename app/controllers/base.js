@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = (model) => {
-
   /**
    * Stores the lowercased name of the current model
    *
@@ -18,6 +17,7 @@ module.exports = (model) => {
   const index = (req, res, next) =>
     model.find()
       .then((docs) => {
+        console.log(modelName);
         res.render(`${modelName}/index`, {data: docs});
       }).catch((err) => {
         next(err);

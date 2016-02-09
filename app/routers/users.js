@@ -1,22 +1,13 @@
 'use strict';
 
+// Require our users model
 let User = require('../models/user');
-let UserController = require('../controllers/users')(User);
 
-let RestfulRouter = require('express-restful-router');
+// require our base controller and inject the user model
+let UsersController = require('../controllers/base')(User);
 
-let router = new RestfulRouter({
-  resource: 'user',
+// create a new RestfulRouter based on the controller
+let RestfulRouter = require('../helpers/restful-router');
 
-  only: [
-    'index',
-    'show'
-  ],
-
-  controller: {
-    index: UserController.index,
-    show: UserController.show
-  }
-});
-
-module.exports = router;
+// export it to be used in the application
+module.exports = RestfulRouter(UsersController);
