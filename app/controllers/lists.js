@@ -2,26 +2,30 @@ var express = require('express');
 var router = express.Router();
 var List = require('../models/list');
 
-//index
-router.get('/', function(req, res, next) {
-  List.find({})
-    .then(function(list) {
-      res.render('lists/index', { list: list });
-    }, function(err) {
-      return next(err);
-    });
-});
+module.exports = (model) => {
 
-//new
-router.get('/new', function(req, res, next) {
-  var list = {
-    title: '',
-    listItems: [],
-    catagory: '',
-    votes: 0,
+
+  //index
+  const index = (req, res, next) => {
+    model.find({})
+      .then(function(list) {
+        res.render('lists/index', { list: list });
+      }, function(err) {
+        return next(err);
+      });
   }
-  res.render('lists/new', {list: list});
-});
+
+  //new
+  const new = (req, res, next) => {
+    var list = {
+      title: '',
+      listItems: [],
+      catagory: '',
+      votes: 0,
+    }
+    res.render('lists/new', {list: list});
+  }
+}
 
 //create
 router.post('/', function(req, res, next) {
@@ -75,4 +79,4 @@ router.delete('/:id', function(req, res, next) {
     });
 });
 
-module.exports = router;
+//m odule.exports = router;
