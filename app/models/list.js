@@ -1,19 +1,21 @@
 var mongoose = require('mongoose');
 
 var comment = new mongoose.Schema({
-    date: Date,
-    body: String
+    date: { Date },
+    body: { String }
 });
 
 var listItem = new mongoose.Schema({
-    item: String,
-    img: String
+    item: { String },
+    img: { String }
 });
 
 var listSchema = new mongoose.Schema({
-    title: String,
-    listItems: [listItem],
-    catagory: String,
-    votes: Number,
+    title: { String },
+    listItems:  [listItem],
+    catagory: { String },
+    votes: { Number },
     comments: [comment]
 });
+
+module.exports = mongoose.model('List', listSchema);
