@@ -2,7 +2,11 @@ var mongoose = require('mongoose');
 
 var comment = new mongoose.Schema({
     date: { Date },
-    body: { String }
+    body: { String },
+    owner: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }]
 });
 
 var listItem = new mongoose.Schema({
@@ -15,7 +19,12 @@ var listSchema = new mongoose.Schema({
     listItems:  [listItem],
     catagory: { String },
     votes: { Number },
-    comments: [comment]
+    comments: [comment],
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
+
 });
 
 module.exports = mongoose.model('List', listSchema);
