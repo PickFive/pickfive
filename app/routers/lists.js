@@ -2,7 +2,7 @@
 
 let authenticate = require('../helpers/authenticate');
 let List = require('../models/list');
-let ListsController = require('../controllers/base')(List);
+let ListsController = require('../controllers/list')(List);
 
 const RestfulRouter = (router, controller) => {
   router.get('/', authenticate, controller.index);
