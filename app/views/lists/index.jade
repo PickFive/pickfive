@@ -2,13 +2,9 @@ extends ../layout
 
 block content
 
-    each list in lists
-     div
-      p=list.title
-      p=list.itemOne
-      p=list.itemTwo
-      p=list.itemThree
-      p=list.itemFour
-      p=list.itemFive
+  each list in lists
+    div
+      a(href='/lists/#{list._id}', style={color: 'blue'}) #{list.title}
 
-  h1 All Lists
+
+  a(href='/lists/new', style={color: 'red'}) Add List
