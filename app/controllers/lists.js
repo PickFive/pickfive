@@ -38,7 +38,7 @@ module.exports = (model) => {
       owner: req.user
       })
     .then((newList) => {
-      res.redirect('/');
+      res.redirect('/lists');
     }).catch((err) => {
       next(err);
     })
