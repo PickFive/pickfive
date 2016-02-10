@@ -19,7 +19,7 @@ const RestfulRouter = (router, controller) => {
   router.get('/:id/edit', authenticate, controller.edit);
   router.put('/:id', authenticate, controller.update);
   router.delete('/:id', authenticate, controller.destroy);
-
+  router.post('/:id', authenticate, controller.createComment);
   return router;
 }
 

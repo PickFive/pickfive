@@ -1,13 +1,8 @@
 var mongoose = require('mongoose');
 
-var comment = new mongoose.Schema({
-    date: { Date },
-    body: { String },
-    owner: [{
-      type: mongoose.Schema.ObjectId,
-      ref: 'User'
-    }]
-});
+// var comment = new mongoose.Schema({
+
+// });
 
 
 var listSchema = new mongoose.Schema({
@@ -25,7 +20,11 @@ var listSchema = new mongoose.Schema({
     catagory:  String,
     votes: Number,
     image: String,
-    comments: [comment],
+    comments: [{
+      text: String,
+      date: Date,
+      postedBy: String
+    }],
     owner: {
       type: mongoose.Schema.ObjectId,
       ref: 'User'
