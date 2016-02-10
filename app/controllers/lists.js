@@ -25,10 +25,15 @@ module.exports = (model) => {
     model.create({
       title: req.body.title,
       itemOne: req.body.itemOne,
+      imageOne: req.body.imageOne,
       itemTwo: req.body.itemTwo,
+      imageTwo: req.body.imageTwo,
       itemThree: req.body.itemThree,
+      imageThree: req.body.imageThree,
       itemFour: req.body.itemFour,
+      imageFour: req.body.imageFour,
       itemFive: req.body.itemFive,
+      imageFive: req.body.imageFive,
       image: req.body.image
       })
     .then((newList) => {
