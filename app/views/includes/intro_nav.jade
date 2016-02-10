@@ -1,0 +1,18 @@
+nav.navbar.navbar-transparent.navbar-fixed-top
+  .intro_nav
+    .container-fluid
+      .navbar-header
+          a.navbar-brand(href='/') Raive
+        ul.nav.navbar-nav.navbar-right
+          if currentUser
+            li.navbar-left
+              a(href='/lists') My Lists
+            li
+              a(href='#') #{currentUser.local.email}
+            li
+              a(href='/signout') Sign Out
+          else
+            li
+              a(href='/signup') Sign Up
+            li
+              a(href='/signin') Sign In
