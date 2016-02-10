@@ -6,8 +6,8 @@ module.exports = (model) => {
   //index
   const index = (req, res, next) => {
     model.find({})
-      .then(function(list) {
-        res.render('lists/index', { list: list });
+      .then(function(lists) {
+        res.render('lists/index', { lists: lists })
       }, function(err) {
         return next(err);
       });
@@ -15,20 +15,24 @@ module.exports = (model) => {
 
   //new
   const newForm = (req, res, next) => {
-    var list = {
-      title: '',
-      listItems: [],
-      catagory: '',
-      votes: 0
-    }
+    var list;
     res.render('lists/new', {list: list});
   }
 
   //create
   const create = (req, res, next) => {
-    model.save(req.body)
+
+    model.create({
+      title: req.body.title,
+      itemOne: req.body.itemOne,
+      itemTwo: req.body.itemTwo,
+      itemThree: req.body.itemThree,
+      itemFour: req.body.itemFour,
+      itemFive: req.body.itemFive,
+      image: req.body.image
+      })
     .then((newList) => {
-      res.redirect('lists');
+      res.redirect('/');
     }).catch((err) => {
       next(err);
     })
@@ -42,7 +46,7 @@ module.exports = (model) => {
     })
   }
 
-  const show = (req, res, next) => 
+  const show = (req, res, next) =>
     model.findById(req.params.id)
       .then((list) => {
         res.render('lists/show');

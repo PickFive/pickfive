@@ -3,30 +3,33 @@ extends ../layout
 block content
   h2 Create a New List
 
-  form(action='/new', method='post')
+  form(action='/lists', method='post')
     .form-group
       label(for='title') Title
-      input.form-control(type='title', name='title')
+      input.form-control(type='text', name='title')
 
     .form-group
-      label(for='item1') #1
-      input.form-control(type='item1', name='item1')
+      label(for='itemOne') #1
+      input.form-control(type='text', name='itemOne')
 
     .form-group
-      label(for='item2') #2
-      input.form-control(type='item2', name='item2')
+      label(for='itemTwo') #2
+      input.form-control(type='text', name='itemTwo')
 
     .form-group
-      label(for='item3') #3
-      input.form-control(type='item3', name='item3')
+      label(for='itemThree') #3
+      input.form-control(type='text', name='itemThree')
 
     .form-group
-      label(for='item4') #4
-      input.form-control(type='item4', name='item4')
+      label(for='itemFour') #4
+      input.form-control(type='text', name='itemFour')
 
     .form-group
-      label(for='item5') #5
-      input.form-control(type='item5', name='item5')
+      label(for='itemFive') #5
+      input.form-control(type='text', name='itemFive')
 
+    .form-group
+      label(for='image') Image
+      input.form-control(type='text', name='image')
     .form-group
       button.btn.btn-primary.btn-success(type='submit') Submit!

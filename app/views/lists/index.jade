@@ -1,4 +1,14 @@
 extends ../layout
 
 block content
+
+    each list in lists
+     div
+      p=list.title
+      p=list.itemOne
+      p=list.itemTwo
+      p=list.itemThree
+      p=list.itemFour
+      p=list.itemFive
+
   h1 All Lists

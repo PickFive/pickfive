@@ -9,16 +9,17 @@ var comment = new mongoose.Schema({
     }]
 });
 
-var listItem = new mongoose.Schema({
-    item: { String },
-    img: { String }
-});
 
 var listSchema = new mongoose.Schema({
-    title: { String },
-    listItems:  [listItem],
-    catagory: { String },
-    votes: { Number },
+    title:  String,
+    itemOne: String,
+    itemTwo: String,
+    itemThree: String,
+    itemFour: String,
+    itemFive: String,
+    catagory:  String,
+    votes: Number,
+    image: String,
     comments: [comment],
     owner: {
       type: mongoose.Schema.ObjectId,

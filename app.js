@@ -97,5 +97,27 @@ mongoose.connection.once('open', function () {
 });
 
 console.log('Running in %s mode', app.get('env'));
+//test junk
+var List = require('./app/models/list');
+List.remove({})
+.then(function() {
+  var lists = [{
+  title: 'first list',
+  itemOne: 'one',
+  itemTwo: 'two',
+  itemThree: 'three',
+  itemFour: 'four',
+  itemFive: 'five'
+},
+  {
+    title: 'second list',
+    catagory: 'test'
+  }
+  ]
+console.log("creating test lists")
+return List.create(lists)
+
+})
+
 
 module.exports = app;
