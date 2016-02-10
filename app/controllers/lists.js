@@ -47,7 +47,7 @@ module.exports = (model) => {
   const edit = (req, res, next) => {
     model.findById(req.params.id)
     .then((list) => {
-      res.render('lists/edit');
+      res.render('lists/edit', {list: list});
     })
   }
 
@@ -61,10 +61,19 @@ module.exports = (model) => {
 
   //update
   const update = (req, res, next) => {
-    model.findByAndUpdate(req.params.id, req.body, {new: true})
-    .then((updatedList) => {
-      res.redirect('lists');
-    }).catch((err) => {
+    model.findById(req.params.id)
+    .then(function(list) {
+      list.title = req.body.title,
+      list.itemOne = req.body.itemOne,
+      list.itemTwo = req.body.itemTwo,
+      list.itemThree = req.body.itemThree,
+      list.itemFour = req.body.itemFour,
+      list.itemFive = req.body.itemFive
+      return list.save()
+    }).then(function(saved) {
+      res.redirect('/');
+    })
+      .catch((err) => {
       next(err);
     })
   }

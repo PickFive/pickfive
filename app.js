@@ -104,6 +104,7 @@ List.remove({})
   var lists = [{
   title: 'first list',
   itemOne: 'one',
+  imageOne: 'http://vignette3.wikia.nocookie.net/inciclopedia/images/c/c8/Derp1.jpg/revision/latest?cb=20110608183440',
   itemTwo: 'two',
   itemThree: 'three',
   itemFour: 'four',

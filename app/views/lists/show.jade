@@ -3,8 +3,10 @@ extends ../layout
 block content
   p=list.title
   p=list.itemOne
+  img(src='#{list.imageOne}')
   p=list.itemTwo
   p=list.itemThree
   p=list.itemFour
   p=list.itemFive
   a(href='/lists', style={color: 'red'}) Back
+  a(href='/lists/#{list._id}/edit', style={color: 'red'}) Edit
