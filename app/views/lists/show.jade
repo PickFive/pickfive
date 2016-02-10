@@ -1,3 +1,10 @@
 extends ../layout
 
-h1 Show List
+block content
+  p=list.title
+  p=list.itemOne
+  p=list.itemTwo
+  p=list.itemThree
+  p=list.itemFour
+  p=list.itemFive
+  a(href='/lists', style={color: 'red'}) Back

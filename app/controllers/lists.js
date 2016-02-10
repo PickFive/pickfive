@@ -54,7 +54,7 @@ module.exports = (model) => {
   const show = (req, res, next) =>
     model.findById(req.params.id)
       .then((list) => {
-        res.render('lists/show');
+        res.render('lists/show', {list: list});
       }).catch((err) => {
         next(err);
       });
