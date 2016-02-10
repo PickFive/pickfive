@@ -5,7 +5,7 @@ module.exports = (model) => {
 
   //index
   const index = (req, res, next) => {
-    model.find({})
+    model.find({owner: req.user})
       .then(function(lists) {
         res.render('lists/index', { lists: lists })
       }, function(err) {
@@ -34,7 +34,8 @@ module.exports = (model) => {
       imageFour: req.body.imageFour,
       itemFive: req.body.itemFive,
       imageFive: req.body.imageFive,
-      image: req.body.image
+      image: req.body.image,
+      owner: req.user
       })
     .then((newList) => {
       res.redirect('/');
