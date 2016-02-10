@@ -71,7 +71,7 @@ module.exports = (model) => {
       list.itemFive = req.body.itemFive
       return list.save()
     }).then(function(saved) {
-      res.redirect('/');
+      res.redirect('/lists');
     })
       .catch((err) => {
       next(err);
@@ -82,7 +82,7 @@ module.exports = (model) => {
   const destroy = (req, res, next) => {
     model.findByIdAndRemove(req.params.id)
       .then(() => {
-        res.redirect('/');
+        res.redirect('/lists');
       }).catch((err) => {
         next(err);
       })
