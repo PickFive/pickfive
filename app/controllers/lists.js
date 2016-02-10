@@ -82,7 +82,7 @@ module.exports = (model) => {
   const destroy = (req, res, next) => {
     model.findByIdAndRemove(req.params.id)
       .then(() => {
-        res.redirect('lists');
+        res.redirect('/');
       }).catch((err) => {
         next(err);
       })
