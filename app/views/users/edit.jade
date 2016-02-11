@@ -1,3 +1,15 @@
 extends ../layout
+block content
+  h2 Edit Profile
+  form(action='/users/#{currentUser._id}?_method=PUT', method='post')
+    .form-group
+      label(for='username') Username
+      input.form-control(type='text', name='username', value='#{currentUser.local.username}')
 
-h2= Edit Page
+    .form-group
+      label(for='password') New Password
+      input.form-control(type='text', name='password')
+
+    .form-group
+      button.btn.btn-primary.btn-success(type='submit') Submit!
+

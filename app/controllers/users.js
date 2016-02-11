@@ -72,7 +72,7 @@ module.exports = (model) => {
       .then((user) => {
         // should return form with fields
         // already populated
-        res.json(user);
+        res.render('users/edit');
       }).catch((err) => {
         next(err);
       });
@@ -84,10 +84,15 @@ module.exports = (model) => {
    * Updates an existing user
    */
   const update = (req, res, next) =>
-    model.findByIdAndUpdate(req.params.id, req.body, {new: true})
-      .then((doc) => {
-        res.json(doc);
-      }).catch((err) => {
+    model.findById(req.params.id)
+      .then(function(user) {
+        user.local.username = req.body.username,
+        user.local.password = user.encrypt(req.body.password)
+        return user.save()
+      }).then(function(saved) {
+        res.redirect('/')
+      })
+      .catch((err) => {
         next(err);
       });
 
