@@ -92,7 +92,7 @@ module.exports = (model) => {
   const createComment = (req, res, next) => {
     model.findById(req.params.id)
     .then(function(list) {
-      list.comments.push({text: req.body.commentsText, postedBy: req.user.local.email})
+      list.comments.push({text: req.body.commentsText, postedBy: req.user.local.username})
       console.log('trying to save comment')
       return list.save()
     }).then(function(saved) {
