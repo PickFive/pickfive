@@ -102,6 +102,13 @@ module.exports = (model) => {
 
   }
 
+  const feedIndex = (req, res, next) => {
+    model.find({category: currentUser.category})
+    .then(function(lists) {
+      res.render('lists/feed', {lists: lists})
+    })
+  }
+
   return {
     index: index,
     newForm: newForm,
@@ -110,7 +117,8 @@ module.exports = (model) => {
     destroy: destroy,
     update: update,
     show: show,
-    createComment: createComment
+    createComment: createComment,
+    feedIndex: feedIndex
   }
 }
 

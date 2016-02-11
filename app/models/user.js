@@ -17,6 +17,7 @@ var UserSchema = mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'List'
   }],
+  category: String,
   comments: [{
     type: mongoose.Schema.ObjectId,
     ref: 'List'
