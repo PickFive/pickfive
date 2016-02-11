@@ -5,7 +5,7 @@ module.exports = (model) => {
 
   //index
   const index = (req, res, next) => {
-    model.find({})
+    model.find({owner: currentUser._id})
       .then(function(lists) {
         res.render('lists/index', { lists: lists })
       }, function(err) {

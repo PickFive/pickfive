@@ -86,8 +86,11 @@ module.exports = (model) => {
   const update = (req, res, next) =>
     model.findById(req.params.id)
       .then(function(user) {
+        if(req.body.password) {
+          user.local.password = user.encrypt(req.body.password)
+        }
         user.local.username = req.body.username,
-        user.local.password = user.encrypt(req.body.password)
+        user.category       = req.body.category
         return user.save()
       }).then(function(saved) {
         res.redirect('/')
