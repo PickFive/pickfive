@@ -35,6 +35,7 @@ module.exports = (model) => {
       itemFive: req.body.itemFive,
       imageFive: req.body.imageFive,
       image: req.body.image,
+      category: req.body.category,
       owner: req.user
       })
     .then((newList) => {
