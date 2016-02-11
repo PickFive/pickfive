@@ -3,6 +3,18 @@ block content
   h2 Edit Profile
   form(action='/users/#{currentUser._id}?_method=PUT', method='post')
     .form-group
+      select(name='category') Category to follow
+        option(value='politics') Politics
+        option(value='science') Science
+        option(value='art') Art
+        option(value='religion') Religion
+        option(value='food') Food
+        option(value='fashion') Fashion
+        option(value='cars') Cars
+        option(value='sports') Sports
+        option(value='entertainment') Entertainment
+        option(value='Miscellaneous') Miscellaneous
+    .form-group
       label(for='username') Username
       input.form-control(type='text', name='username', value='#{currentUser.local.username}')
 
