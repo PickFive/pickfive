@@ -8,8 +8,10 @@ block content
   p=list.itemFour
   p=list.itemFive
   each comment in list.comments
-    p=comment.text
+    div.comments
+      p=comment.text
       p=comment.postedBy
   include ./comment.jade
-  a(href='/lists', style={color: 'red'}) Back
-  a(href='/lists/#{list._id}/edit', style={color: 'red'}) Edit
+  div.navigation
+    a(href='/lists', style={color: 'red', margin: 'auto'}) Back
+    a(href='/lists/#{list._id}/edit', style={color: 'red'}) Edit
