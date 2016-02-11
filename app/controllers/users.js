@@ -18,7 +18,7 @@ module.exports = (model) => {
     model.find()
       .then((docs) => {
         console.log(modelName);
-        res.render(`${modelName}/index`, {data: docs});
+        res.send('index');
       }).catch((err) => {
         next(err);
       });
@@ -32,7 +32,7 @@ module.exports = (model) => {
   const show = (req, res, next) =>
     model.findById(req.params.id)
       .then((doc) => {
-        res.json(doc);
+        res.render('users/show')
       }).catch((err) => {
         next(err);
       });
