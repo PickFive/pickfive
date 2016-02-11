@@ -2,32 +2,34 @@ extends ../layout
 block content
   h1 Edit List
 
-  form(action='/lists/#{list._id}?_method=PUT', method='post')
-    .form-group
-      label(for='title') Title
-      input.form-control(type='text', name='title', value='#{list.title}')
-
-    .form-group
-
-      label(for='itemOne') #1
-      input.form-control(type='text', name='itemOne')
-
-    .form-group
-      label(for='itemTwo') #2
-      input.form-control(type='text', name='itemTwo')
-
-    .form-group
-      label(for='itemThree') #3
-      input.form-control(type='text', name='itemThree')
-
-    .form-group
-      label(for='itemFour') #4
-      input.form-control(type='text', name='itemFour')
-
-    .form-group
-      label(for='itemFive') #5
-      input.form-control(type='text', name='itemFive')
-
-    .form-group
-      button.btn.btn-primary.btn-success(type='submit') Submit!
-
+  div.well 
+    form(action='/lists/#{list._id}?_method=PUT', method='post')
+      .form-group
+        label(for='title') Title
+        input.form-control(type='text', name='title', value='#{list.title}')
+    
+      .form-group
+    
+        label(for='itemOne') #1
+        input.form-control(type='text', name='itemOne', value='#{list.itemOne}')
+    
+      .form-group
+        label(for='itemTwo') #2
+        input.form-control(type='text', name='itemTwo', value='#{list.itemTwo}')
+    
+      .form-group
+        label(for='itemThree') #3
+        input.form-control(type='text', name='itemThree', value='#{list.itemThree}')
+    
+      .form-group
+        label(for='itemFour') #4
+        input.form-control(type='text', name='itemFour', value='#{list.itemFour}')
+    
+      .form-group
+        label(for='itemFive') #5
+        input.form-control(type='text', name='itemFive', value='#{list.itemFive}')
+    
+      .form-group
+        button.btn.btn-primary.btn-success(type='submit') Submit!
+    
+  
