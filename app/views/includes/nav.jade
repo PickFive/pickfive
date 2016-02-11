@@ -4,10 +4,12 @@ nav.navbar.navbar-default.navbar-fixed-top
       a.navbar-brand(href='/') Raive
     ul.nav.navbar-nav.navbar-right
       if currentUser
+        li
+          a(href='/lists/feed') Feed
         li.navbar-left
           a(href='/lists') My Lists
         li
-          a(href='users/#{currentUser.id}/edit') #{currentUser.local.username}
+          a(href='/users/#{currentUser.id}/edit') #{currentUser.local.username}
         li
           a(href='/signout') Sign Out
       else

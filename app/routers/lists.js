@@ -14,12 +14,14 @@ let ListsController = require('../controllers/lists')(List);
 const RestfulRouter = (router, controller) => {
   router.get('/', authenticate, controller.index);
   router.get('/new', authenticate, controller.newForm);
+  router.get('/feed', authenticate, controller.feedIndex);
   router.get('/:id', authenticate, controller.show);
   router.post('/', authenticate, controller.create);
   router.get('/:id/edit', authenticate, controller.edit);
   router.put('/:id', authenticate, controller.update);
   router.delete('/:id', authenticate, controller.destroy);
   router.post('/:id', authenticate, controller.createComment);
+
   return router;
 }
 
