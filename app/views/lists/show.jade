@@ -1,17 +1,30 @@
 extends ../layout
 
 block content
-  p=list.title
-  p=list.itemOne
-  p=list.itemTwo
-  p=list.itemThree
-  p=list.itemFour
-  p=list.itemFive
-  each comment in list.comments
-    div.comments
-      p=comment.text
-      p=comment.postedBy
-  include ./comment.jade
-  div.navigation
-    a(href='/lists', style={color: 'red', margin: 'auto'}) Back
-    a(href='/lists/#{list._id}/edit', style={color: 'red'}) Edit
+  div.bootcards-list
+    div.panel.plane-default
+      div.list-group
+        a.list-group-title
+          h2=list.title
+          div.row
+            div.col-sm-12
+              div.list-group-item
+                p=list.itemOne
+              div.list-group-item
+                p=list.itemTwo
+              div.list-group-item
+                p=list.itemThree
+              div.list-group-item
+                p=list.itemFour
+              div.list-group-item
+                p=list.itemFive
+              each comment in list.comments
+                div.comments
+                  p=comment.text
+                  p=comment.postedBy
+              include ./comment.jade
+              br
+              div.navigation
+                a(href='/lists', style={color: 'red', margin: 'auto'}) Back
+                a(href='/lists/#{list._id}/edit', style={color: 'red'}) Edit
+              br
