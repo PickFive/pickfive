@@ -23,7 +23,7 @@ block content
               .modal-header
                 h2 Create a new List!
               .modal-body
-                form(action='/lists', method='post')
+                form.form-inline(action='/lists', method='post')
                   .form-group
                     label(for='title') Title
                     input.form-control(type='text', name='title')
@@ -32,21 +32,41 @@ block content
                     label(for='itemOne') #1
                     input.form-control(type='text', name='itemOne')
 
+                    label(for='imageOne') #1
+                    input.form-control(type='url', name='imageOne')
+
+
                   .form-group
                     label(for='itemTwo') #2
                     input.form-control(type='text', name='itemTwo')
 
+                    label(for='imageTwo') #2
+                    input.form-control(type='url', name='imageTwo')
+
                   .form-group
                     label(for='itemThree') #3
                     input.form-control(type='text', name='itemThree')
+                    
+                    label(for='imageThree') #3
+                    input.form-control(type='url', name='imageThree')
+
 
                   .form-group
                     label(for='itemFour') #4
                     input.form-control(type='text', name='itemFour')
+                    
+                    label(for='imageFour') #4
+                    input.form-control(type='url', name='imageFour')
+
 
                   .form-group
                     label(for='itemFive') #5
                     input.form-control(type='text', name='itemFive')
+
+                    label(for='imageFive') #5
+                    input.form-control(type='url', name='imageFive')
+
+
                     input(type='hidden', name='category', value="#{category}")
 
                   .form-group
