@@ -1,10 +1,8 @@
-extends ../layout
 block content
 
   form(action='/lists/#{list._id}', method='post')
     .form-group
       label(for='commentsText')
-        .glyphicon.glyphicon-fire
       input.form-control(type='text', name='commentsText', placeholder='Comment...')
       br
     .form-group

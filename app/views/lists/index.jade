@@ -5,9 +5,35 @@ block content
   .grid
     each list in lists
       .grid-item
-        form(action='/lists/#{list._id}?_method=DELETE', method='post')
-          a(href='/lists/#{list._id}', style={color: 'blue'}) #{list.title}
-          .form-group
-            button.btn.btn-primary.btn-success(type='submit') Delete
+        .panel.panel-default.bootcards-media
+          .panel-heading
+            h3.panel-title
+              a(href='/lists/#{list._id}') #{list.title}
+          .panel-body
+            img.img-responsive(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
 
-  a(href='/lists/new', style={color: 'red'}) Add List
+            .btn-group.btn-group-justified
+              .btn-group
+                img.img-responsive(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+              .btn-group
+                img.img-responsive(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+              .btn-group
+                img.img-responsive(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+          .panel-footer
+            .btn-group.btn-group-justified
+              .btn-group
+                form(action='/lists/#{list._id}?_method=DELETE', method='post')
+                  button.btn.btn-primary.btn-success(type='submit') Edit
+              .btn-group
+                .btn.btn-default
+                  i Favorite
+              .btn-group
+                .btn.btn-default
+                  i Share
+
+    .grid-item
+      .panel.panel-default.bootcards-media
+        .panel-heading
+          h3.panel-title New List
+        .panel-body
+          a.btn.btn-primary.btn-lg(href='/lists/new') Create New List

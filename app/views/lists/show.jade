@@ -2,29 +2,29 @@ extends ../layout
 
 block content
   div.bootcards-list
-    div.panel.plane-default
+    div.panel.panel-default
       div.list-group
         a.list-group-title
           h2=list.title
-          div.row
-            div.col-sm-12
-              div.list-group-item
-                p=list.itemOne
-              div.list-group-item
-                p=list.itemTwo
-              div.list-group-item
-                p=list.itemThree
-              div.list-group-item
-                p=list.itemFour
-              div.list-group-item
-                p=list.itemFive
-              each comment in list.comments
-                div.comments
-                  p=comment.text
-                  p=comment.postedBy
-              include ./comment.jade
-              br
-              div.navigation
-                a(href='/lists', style={color: 'red', margin: 'auto'}) Back
-                a(href='/lists/#{list._id}/edit', style={color: 'red'}) Edit
-              br
+        div.row
+          div.col-sm-12
+            div.list-group-item
+              p=list.itemOne
+            div.list-group-item
+              p=list.itemTwo
+            div.list-group-item
+              p=list.itemThree
+            div.list-group-item
+              p=list.itemFour
+            div.list-group-item
+              p=list.itemFive
+            each comment in list.comments
+              div.comments
+                p=comment.text
+                p=comment.postedBy
+            include comment
+            br
+            div.navigation
+              a(href='/lists', style={color: 'red', margin: 'auto'}) Back
+              a(href='/lists/#{list._id}/edit', style={color: 'red'}) Edit
+            br
