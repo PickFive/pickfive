@@ -5,7 +5,8 @@ var passport = require('passport');
 var UserSchema = mongoose.Schema({
   local: {
     email: String,
-    password: String
+    password: String,
+    username: String
   },
   facebook: {
     id: String,

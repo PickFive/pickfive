@@ -8,7 +8,7 @@ nav.navbar.navbar-transparent.navbar-fixed-top
             li.navbar-left
               a(href='/lists') My Lists
             li
-              a(href='users/#{currentUser.id}') #{currentUser.local.email}
+              a(href='users/#{currentUser.id}/edit') #{currentUser.local.username}
             li
               a(href='/signout') Sign Out
           else

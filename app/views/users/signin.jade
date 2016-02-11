@@ -3,11 +3,11 @@ extends ../layout
 block content
   h2 Sign In
 
-  .well 
+  div.well 
     form(action='/signin', method='post')
       .form-group
-        label(for='email') Email
-        input.form-control(type='email', name='email')
+        label(for='username') Username
+        input.form-control(type='username', name='username')
     
       .form-group
         label(for='password') Password

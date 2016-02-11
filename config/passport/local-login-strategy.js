@@ -2,12 +2,12 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../../app/models/user');
 
 var strategy = new LocalStrategy({
-    usernameField : 'email',       // default is 'username'
+    usernameField : 'username',       // default is 'username'
     passwordField : 'password',
     passReqToCallback : true
-  }, function(req, email, password, callback) {
-    // Search for a user with this email
-    User.findOne({ 'local.email' : email }, function(err, user) {
+  }, function(req, username, password, callback) {
+    // Search for a user with this username
+    User.findOne({ 'local.username' : username }, function(err, user) {
       if (err) return callback(err);
 
       // If no user is found
