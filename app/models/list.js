@@ -17,7 +17,7 @@ var listSchema = new mongoose.Schema({
     imageFour: String,
     itemFive: String,
     imageFive: String,
-    catagory:  String,
+    category:  String,
     votes: Number,
     image: String,
     comments: [{
