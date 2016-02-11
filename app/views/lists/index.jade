@@ -3,10 +3,11 @@ extends ../layout
 block content
 
   each list in lists
-    div
-      form(action='/lists/#{list._id}?_method=DELETE', method='post')
-        a(href='/lists/#{list._id}', style={color: 'blue'}) #{list.title}
-         .form-group
-           button.btn.btn-primary.btn-success(type='submit') Delete
+    .panel.panel-default
+      .panel-body
+        form(action='/lists/#{list._id}?_method=DELETE', method='post')
+          a(href='/lists/#{list._id}', style={color: 'blue'}) #{list.title}
+            .form-group
+              button.btn.btn-primary.btn-success(type='submit') Delete
 
-  a(href='/lists/new', style={color: 'red'}) Add List
+  a.btn.btn-default(href='/lists/new') Add List
