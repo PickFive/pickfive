@@ -99,22 +99,52 @@ mongoose.connection.once('open', function () {
 console.log('Running in %s mode', app.get('env'));
 //test junk
 var List = require('./app/models/list');
+
 List.remove({})
-.then(function() {
-  var lists = [{
-  title: 'first list',
-  itemOne: 'one',
-  imageOne: 'http://vignette3.wikia.nocookie.net/inciclopedia/images/c/c8/Derp1.jpg/revision/latest?cb=20110608183440',
-  itemTwo: 'two',
-  itemThree: 'three',
-  itemFour: 'four',
-  itemFive: 'five'
-},
-  {
-    title: 'second list',
-    catagory: 'test'
-  }
-  ]
+  .then(function() {
+    var lists = [{
+      title: 'first list',
+      itemOne: 'one',
+      imageOne: 'http://vignette3.wikia.nocookie.net/inciclopedia/images/c/c8/Derp1.jpg/revision/latest?cb=20110608183440',
+      itemTwo: 'two',
+      itemThree: 'three',
+      itemFour: 'four',
+      itemFive: 'five'
+    },
+    {
+      title: 'second list',
+      category: 'test'
+    },
+    {
+      title: 'breakfast',
+      category: 'food',
+      itemOne: 'Eggs',
+      itemTwo: 'Bacon',
+      itemThree: 'Toast',
+      itemFour: 'Grits',
+      itemFive: 'Bacon'
+    },
+    {
+      title: 'lunch',
+      category: 'food',
+      itemOne: 'Eggs',
+      itemTwo: 'Bacon',
+      itemThree: 'Toast',
+      itemFour: 'Grits',
+      itemFive: 'Bacon'
+    },
+    {
+      title: 'dinner',
+      category: 'food',
+      itemOne: 'Eggs',
+      itemTwo: 'Bacon',
+      itemThree: 'Toast',
+      itemFour: 'Grits',
+      itemFive: 'Bacon'
+    }
+
+  ];
+
 console.log("creating test lists")
 return List.create(lists)
 
