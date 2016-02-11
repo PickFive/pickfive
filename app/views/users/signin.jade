@@ -3,14 +3,16 @@ extends ../layout
 block content
   h2 Sign In
 
-  form(action='/signin', method='post')
-    .form-group
-      label(for='email') Email
-      input.form-control(type='email', name='email')
-
-    .form-group
-      label(for='password') Password
-      input.form-control(type='password', name='password')
-
-    .form-group
-      button.btn.btn-primary.btn-success(type='submit') Sign In!
+  .well 
+    form(action='/signin', method='post')
+      .form-group
+        label(for='email') Email
+        input.form-control(type='email', name='email')
+    
+      .form-group
+        label(for='password') Password
+        input.form-control(type='password', name='password')
+    
+      .form-group
+        button.btn.btn-primary.btn-success(type='submit') Sign In!
+  
