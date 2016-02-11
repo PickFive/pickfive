@@ -5967,3 +5967,6 @@ div.bootcards-list {
   margin-top: 20px;
   background-color: none;
   width: 100%; }
+
+.category-form {
+  max-width: 50%; }

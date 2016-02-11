@@ -3,33 +3,53 @@ extends ../layout
 block content
   h2 Create a New List
 
-  div.well
-    form(action='/lists', method='post')
-      .form-group
-        label(for='title') Title
-        input.form-control(type='text', name='title')
+  - categories = ['food', 'sports', 'cars']
 
-      .form-group
+  each category in categories
+    .grid
+      .category-box
+        .grid-item
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title #{category}
+            .panel-body
+              img.img-responsive(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+            .panel-footer
+              button.btn.btn-primary.btn-lg(type="button", data-toggle="modal", data-target="##{category}-form") Create
 
-        label(for='itemOne') #1
-        input.form-control(type='text', name='itemOne')
+        .modal.fade.category-form(id="#{category}-form", tabindex="-1")
+          .modal-dialog
+            .modal-content
+              .modal-header
+                h2 Create a new List!
+              .modal-body
+                form(action='/lists', method='post')
+                  .form-group
+                    label(for='title') Title
+                    input.form-control(type='text', name='title')
 
-      .form-group
-        label(for='itemTwo') #2
-        input.form-control(type='text', name='itemTwo')
+                  .form-group
 
-      .form-group
-        label(for='itemThree') #3
-        input.form-control(type='text', name='itemThree')
+                    label(for='itemOne') #1
+                    input.form-control(type='text', name='itemOne')
 
-      .form-group
-        label(for='itemFour') #4
-        input.form-control(type='text', name='itemFour')
+                  .form-group
+                    label(for='itemTwo') #2
+                    input.form-control(type='text', name='itemTwo')
 
-      .form-group
-        label(for='itemFive') #5
-        input.form-control(type='text', name='itemFive')
+                  .form-group
+                    label(for='itemThree') #3
+                    input.form-control(type='text', name='itemThree')
 
-      .form-group
-        button.btn.btn-primary.btn-success(type='submit') Submit!
+                  .form-group
+                    label(for='itemFour') #4
+                    input.form-control(type='text', name='itemFour')
+
+                  .form-group
+                    label(for='itemFive') #5
+                    input.form-control(type='text', name='itemFive')
+                    input(type='hidden', name='category', value="#{category}")
+
+                  .form-group
+                    button.btn.btn-primary.btn-success(type='submit') Submit!
 
