@@ -7,7 +7,7 @@ block content
         .well
           form(action='/users/#{currentUser._id}?_method=PUT', method='post')
             .form-group
-              label(for='category') Choose a topic to follow:
+              label(for='category') Choose a topic to follow: &nbsp
               select(name='category')
                 option(value='') None
                 option(value='politics') Politics
@@ -22,14 +22,14 @@ block content
                 option(value='Miscellaneous') Miscellaneous
 
             .form-group
-              label(for='username') Username
+              label(for='username')
               input.form-control(type='text', class='username', name='username', value='#{currentUser.local.username}')
             .form-group
-              label(for='image') Profile Picture URL
-              input.form-control(type='text', name='image', placeholder='URL')
+              label(for='image')
+              input.form-control(type='text', name='image', placeholder='Profile Picture URL')
             .form-group
-              label(for='password') New Password
-              input.form-control(type='password', name='password')
+              label(for='password')
+              input.form-control(type='password', name='password', placeholder="Change Password")
 
             .form-group
               button.btn.btn-primary.btn-success(type='submit') Submit!
