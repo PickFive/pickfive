@@ -3,45 +3,43 @@ block content
   h1 Edit List
 
   div.well 
-    form.form(action='/lists/#{list._id}?_method=PUT', method='post')
+    form.form-inline(action='/lists/#{list._id}?_method=PUT', method='post')
       .form-group
         label(for='title') Title
+        br
         input.form-control(type='text', name='title', value='#{list.title}')
+      br
+      br
     
       .form-group
-        label(for='itemOne') #1
         input.form-control(type='text', name='itemOne', value='#{list.itemOne}')
-
-        label(for='imageOne') #1
         input.form-control(type='url', name='imageOne', value='#{list.imageOne}')
+      br
+      br
     
       .form-group
-        label(for='itemTwo') #2
         input.form-control(type='text', name='itemTwo', value='#{list.itemTwo}')
-
-        label(for='imageTwo') #2
         input.form-control(type='url', name='imageTwo', value='#{list.imageTwo}')
+      br
+      br
     
       .form-group
-        label(for='itemThree') #3
         input.form-control(type='text', name='itemThree', value='#{list.itemThree}')
-
-        label(for='imageThree') #3
         input.form-control(type='url', name='imageThree', value='#{list.imageThree}')
+      br
+      br
     
       .form-group
-        label(for='itemFour') #4
         input.form-control(type='text', name='itemFour', value='#{list.itemFour}')
-
-        label(for='imageFour') #4
         input.form-control(type='url', name='imageFour', value='#{list.imageFour}')
+      br
+      br
     
       .form-group
-        label(for='itemFive') #5
         input.form-control(type='text', name='itemFive', value='#{list.itemFive}')
-
-        label(for='imageFive') #5
         input.form-control(type='url', name='imageFive', value='#{list.imageFive}')
+      br
+      br
     
       .form-group
         button.btn.btn-primary.btn-success(type='submit') Submit!
