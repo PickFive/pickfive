@@ -93,8 +93,9 @@ module.exports = (model) => {
     model.findById(req.params.id)
     .then(function(list) {
       list.comments.push({text: req.body.commentsText, postedBy: req.user.local.username, avatar: req.user.image})
-      console.log('trying to save comment')
-      return list.save()
+      console.log('trying to save comment');
+      list.save();
+      res.redirect('/lists/' + req.params.id);
     }).then(function(saved) {
       res.redirect('/lists')
     })
