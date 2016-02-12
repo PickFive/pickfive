@@ -9,18 +9,18 @@ block content
         .well
           form(action='/signup', method="post")
             .form-group
-              label(for='username') username
-              input.form-control(type='username', name='username')
+              label(for='username')
+              input.form-control(type='username', name='username', placeholder="Username")
             .form-group
-              label(for='image') Profile Picture
-              input.form-control(type='text', name='image', placeholder='URL')
+              label(for='image')
+              input.form-control(type='text', name='image', placeholder='Profile Picture URL')
             .form-group
-              label(for='password') Password
-              input.form-control(type='password', name='password')
+              label(for='password')
+              input.form-control(type='password', name='password', placeholder="Create a Password")
 
             .form-group
-              label(for='password-confirm') Confirm Password
-              input.form-control(type='password', name='password-confirm')
+              label(for='password-confirm')
+              input.form-control(type='password', name='password-confirm', placeholder="Confirm Password")
 
             .form-group
                label(for='category') Choose a topic to follow:
