@@ -6,3 +6,8 @@ block content
         .col-md-6.col-md-offset-3
           .well.getStarted
             p After signing in or signing up, click on your username in the nav bar to select a topic to follow. Your feed will be populated with lists of the chosen topic.
+            if !currentUser
+              a.btn.btn-default.btn-lg(href='/lists/new') Create a new list!
+            else
+              a.btn.btn-default.btn-lg(href='/signup') Sign Up!
+              a.btn.btn-default.btn-lg(href='/signin') Sign In!
