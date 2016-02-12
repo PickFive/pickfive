@@ -10,25 +10,35 @@ block content
             h3.panel-title
               a(href='/lists/#{list._id}') #{list.title}
           .panel-body
-            img(src='#{list.imageOne}')
+            .col-sm-6.col-sm-6
+              .thumbnail.pic
+                img(src='#{list.imageOne}')
+                .caption
+                   h3 #{list.itemOne}
 
-            .btn-group.btn-group-justified
-              .btn-group
-                img.img-responsive(src='#{list.imageTwo}')
-              .btn-group
-                img.img-responsive(src='#{list.imageThree}')
-              .btn-group
-                img.img-responsive(src='#{list.imageFour}')
+            .col-sm-6.col-sm-6
+              .thumbnail.pic
+                img(src='#{list.imageTwo}')
+                .caption
+                    h3 #{list.itemTwo}
 
-          .panel-footer
-            .btn-group.btn-group-justified
-              .btn-group
-                .btn.btn-default
-                  i Favorite
-              .btn-group
-                .btn.btn-default
-                  i Share
+            .col-sm-6.col-sm-4
+              .thumbnail.pic
+                img(src='#{list.imageThree}')
+                .caption
+                    h3 #{list.itemThree}
 
+            .col-sm-6.col-sm-4
+              .thumbnail.pic
+                img(src='#{list.imageFour}')
+                .caption
+                    h3 #{list.itemFour}
+
+            .col-sm-6.col-sm-4
+              .thumbnail.pic
+                img(src='#{list.imageFive}')
+                .caption
+                  h3 #{list.itemFive}
     .grid-item
       .panel.panel-default.bootcards-media
         .panel-heading
