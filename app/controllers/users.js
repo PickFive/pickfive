@@ -89,8 +89,13 @@ module.exports = (model) => {
         if(req.body.password) {
           user.local.password = user.encrypt(req.body.password)
         }
-        user.local.username = req.body.username,
-        user.category       = req.body.category
+        if(model.count({username: req.body.username})) {
+
+        }
+        else {
+          user.local.username = req.body.username
+        }
+        user.category = req.body.category
         return user.save()
       }).then(function(saved) {
         res.redirect('/')

@@ -1,27 +1,33 @@
 extends ../layout
 block content
   h2 Edit Profile
-  form(action='/users/#{currentUser._id}?_method=PUT', method='post')
-    .form-group
-      select(name='category') Category to follow
-        option(value='politics') Politics
-        option(value='science') Science
-        option(value='art') Art
-        option(value='religion') Religion
-        option(value='food') Food
-        option(value='fashion') Fashion
-        option(value='cars') Cars
-        option(value='sports') Sports
-        option(value='entertainment') Entertainment
-        option(value='Miscellaneous') Miscellaneous
-    .form-group
-      label(for='username') Username
-      input.form-control(type='text', name='username', value='#{currentUser.local.username}')
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        .well
+          form(action='/users/#{currentUser._id}?_method=PUT', method='post')
+            .form-group
+              label(for='category') Choose a topic to follow:
+              select(name='category')
+                option(value='') None
+                option(value='politics') Politics
+                option(value='science') Science
+                option(value='art') Art
+                option(value='religion') Religion
+                option(value='food') Food
+                option(value='fashion') Fashion
+                option(value='cars') Cars
+                option(value='sports') Sports
+                option(value='entertainment') Entertainment
+                option(value='Miscellaneous') Miscellaneous
+            .form-group
+              label(for='username') Username
+              input.form-control(type='text', name='username', value='#{currentUser.local.username}')
 
-    .form-group
-      label(for='password') New Password
-      input.form-control(type='text', name='password')
+            .form-group
+              label(for='password') New Password
+              input.form-control(type='password', name='password')
 
-    .form-group
-      button.btn.btn-primary.btn-success(type='submit') Submit!
+            .form-group
+              button.btn.btn-primary.btn-success(type='submit') Submit!
 
