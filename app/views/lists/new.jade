@@ -25,49 +25,38 @@ block content
               .modal-body
                 form.form-inline(action='/lists', method='post')
                   .form-group
-                    label(for='title') Title
-                    input.form-control(type='text', name='title')
+                    input.form-control(type='text', name='title', placeholder='title')
+                  br
+                  br
 
                   .form-group
-                    label(for='itemOne') #1
-                    input.form-control(type='text', name='itemOne')
-
-                    label(for='imageOne') #1
-                    input.form-control(type='url', name='imageOne')
-
-
-                  .form-group
-                    label(for='itemTwo') #2
-                    input.form-control(type='text', name='itemTwo')
-
-                    label(for='imageTwo') #2
-                    input.form-control(type='url', name='imageTwo')
-
-                  .form-group
-                    label(for='itemThree') #3
-                    input.form-control(type='text', name='itemThree')
-                    
-                    label(for='imageThree') #3
-                    input.form-control(type='url', name='imageThree')
+                    input.form-control(type='text', name='itemOne', placeholder='First Thing')
+                    input.form-control(type='url', name='imageOne', placeholder='Image URL')
+                  br
 
 
                   .form-group
-                    label(for='itemFour') #4
-                    input.form-control(type='text', name='itemFour')
-                    
-                    label(for='imageFour') #4
-                    input.form-control(type='url', name='imageFour')
-
+                    input.form-control(type='text', name='itemTwo', placeholder='Second Thing')
+                    input.form-control(type='url', name='imageTwo', placeholder='Image URL')
+                  br
 
                   .form-group
-                    label(for='itemFive') #5
-                    input.form-control(type='text', name='itemFive')
+                    input.form-control(type='text', name='itemThree', placeholder='Third Thing')
+                    input.form-control(type='url', name='imageThree', placeholder='Image URL')
+                  br
 
-                    label(for='imageFive') #5
-                    input.form-control(type='url', name='imageFive')
+                  .form-group
+                    input.form-control(type='text', name='itemFour', placeholder='Fourth Thing')
+                    input.form-control(type='url', name='imageFour', placeholder='Image URL')
+                  br
 
-
+                  .form-group
+                    input.form-control(type='text', name='itemFive', placeholder='Fifth Thing')
+                    input.form-control(type='url', name='imageFive', placeholder='Image URL')
                     input(type='hidden', name='category', value="#{category}")
+                  br
+                  br
+
 
                   .form-group
                     button.btn.btn-primary.btn-success(type='submit') Submit!
