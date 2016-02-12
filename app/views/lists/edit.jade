@@ -3,7 +3,7 @@ block content
   h1 Edit List
 
   div.well 
-    form(action='/lists/#{list._id}?_method=PUT', method='post')
+    form.form(action='/lists/#{list._id}?_method=PUT', method='post')
       .form-group
         label(for='title') Title
         input.form-control(type='text', name='title', value='#{list.title}')

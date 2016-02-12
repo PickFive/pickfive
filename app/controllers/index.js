@@ -2,9 +2,17 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
+var List = require('../models/list');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Raive' });
+  List.find({}).
+   then(function (lists) {
+     console.log(lists);
+     res.render('index', {title: 'Raive', lists: lists});
+   }, function (err) {
+     return next(err);
+   }); 
 });
 
 // Sign Up / Sign In Routes

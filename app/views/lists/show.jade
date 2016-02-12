@@ -1,35 +1,67 @@
 extends ../layout
 
 block content
-  .panel.panel-default
-    .panel-heading
-      h2.panel-title #{list.title}
-    .panel-body
-      .list-group
-        div.list-group-item
-          p #{list.itemOne}
-        div.list-group-item
-          p=list.itemTwo
-        div.list-group-item
-          p=list.itemThree
-        div.list-group-item
-          p=list.itemFour
-        div.list-group-item
-          p=list.itemFive
 
-      each comment in list.comments
-        div.comments
-          p=comment.text
-          p posted by:
-          p=comment.postedBy
+  .col-sm-6
+    .panel.panel-default
+      .panel-header
+        h1.panel-title #{list.title}
+      .panel-body
+        .col-sm-6.col-sm-6
+          .thumbnail
+            img(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+            .caption
+              h3 #{list.itemOne}
+
+        .col-sm-6.col-sm-6
+          .thumbnail
+            img(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+            .caption
+              h3 #{list.itemTwo}
+
+        .col-sm-6.col-sm-4
+          .thumbnail
+            img(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+            .caption
+              h3 #{list.itemThree}
+
+        .col-sm-6.col-sm-4
+          .thumbnail
+            img(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+            .caption
+              h3 #{list.itemFour}
+
+        .col-sm-6.col-sm-4
+          .thumbnail
+            img(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+            .caption
+              h3 #{list.itemFive}
+
+      .panel-footer
+        .btn-group.btn-group-justified
+          .btn-group
+            form(action='/lists/#{list._id}?_method=DELETE', method='post')
+              button.btn.btn-primary.btn-success(type='submit') Delete
+          .btn-group
+            a.btn.btn-primary(href='/lists') Back
+          .btn-group
+            a.btn.btn-primary(href='/lists/#{list._id}/edit') Edit
+
+  .col-sm-6
+    .well
+      h3 Comment On This List
+      hr
+      ul.media-list
+        each comment in list.comments
+          li.media
+            .media-left
+              a(href='#')
+                img.media-object(src='https://www.fillmurray.com/150/150')
+            .media-body
+              h4.media-heading #{comment.postedBy} Says:
+              p #{comment.text}
+            hr
+
 
       include comment
 
-      .btn-group.btn-group-justified
-        .btn-group
-          form(action='/lists/#{list._id}?_method=DELETE', method='post')
-            button.btn.btn-primary.btn-success(type='submit') Delete
-        .btn-group
-          a.btn.btn-primary(href='/lists') Back
-        .btn-group
-          a.btn.btn-primary(href='/lists/#{list._id}/edit') Edit

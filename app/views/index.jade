@@ -2,10 +2,23 @@ extends intro_layout
 
 
 block content
-  h1= title
-  p Welcome to #{title}
 
+  if !currentUser
+    .jumbotron
+      .container
+        .row
+          .col-md-6.col-md-offset-3
+            h1 Raive
+            p Where people come to share the best of the best
+            p
+              a.btn.btn-primary.btn-lg(href='/signup') Sign Up
 
-
-
-
+  .grid
+    each list in lists
+      .grid-item
+        .panel.panel-default.bootcards-media
+          .panel-heading
+            h3.panel-title
+              a(href='/lists/#{list._id}') #{list.title}
+          .panel-body
+            img.img-responsive(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
