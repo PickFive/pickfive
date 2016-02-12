@@ -5982,3 +5982,9 @@ div.bootcards-list {
 
 .getStarted p {
   font-size: 20px; }
+
+.avatar {
+  max-height: 150px;
+  max-width: 150px;
+  border-radius: 75px;
+}
