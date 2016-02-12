@@ -11,7 +11,9 @@ block content
             .form-group
               label(for='username') username
               input.form-control(type='username', name='username')
-
+            .form-group
+              label(for='image') Profile Picture
+              input.form-control(type='text', name='image', placeholder='URL')
             .form-group
               label(for='password') Password
               input.form-control(type='password', name='password')
@@ -32,6 +34,7 @@ block content
                  option(value='sports') Sports
                  option(value='entertainment') Entertainment
                  option(value='Miscellaneous') Miscellaneous
+
             .form-group
               button.btn.btn-primary.btn-success(type='submit') Sign Up!
 

@@ -95,7 +95,8 @@ module.exports = (model) => {
         else {
           user.local.username = req.body.username
         }
-        user.category = req.body.category
+        user.category = req.body.category,
+        user.image    = req.body.image
         return user.save()
       }).then(function(saved) {
         res.redirect('/')

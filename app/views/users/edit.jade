@@ -24,7 +24,9 @@ block content
             .form-group
               label(for='username') Username
               input.form-control(type='text', class='username', name='username', value='#{currentUser.local.username}')
-
+            .form-group
+              label(for='image') Profile Picture URL
+              input.form-control(type='text', name='image')
             .form-group
               label(for='password') New Password
               input.form-control(type='password', name='password')

@@ -5979,3 +5979,14 @@ div.bootcards-list {
 .getStarted {
   background: rgba(0, 0, 0, 0.3) !important;
 }
+.pic {
+  max-height: 100%;
+  max-width: 100%;
+}
+.avatar {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 75px;
+  border: 2px solid lightgrey;
+}
+

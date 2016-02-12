@@ -8,32 +8,32 @@ block content
         h1.panel-title #{list.title}
       .panel-body
         .col-sm-6.col-sm-6
-          .thumbnail
-            img(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+          .thumbnail.pic
+            img(src='#{list.imageOne}')
             .caption
               h3 #{list.itemOne}
 
         .col-sm-6.col-sm-6
-          .thumbnail
-            img(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+          .thumbnail.pic
+            img(src='#{list.imageTwo}')
             .caption
               h3 #{list.itemTwo}
 
         .col-sm-6.col-sm-4
-          .thumbnail
-            img(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+          .thumbnail.pic
+            img(src='#{list.imageThree}')
             .caption
               h3 #{list.itemThree}
 
         .col-sm-6.col-sm-4
-          .thumbnail
-            img(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+          .thumbnail.pic
+            img(src='#{list.imageFour}')
             .caption
               h3 #{list.itemFour}
 
         .col-sm-6.col-sm-4
-          .thumbnail
-            img(src='http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg')
+          .thumbnail.pic
+            img(src='#{list.imageFive}')
             .caption
               h3 #{list.itemFive}
 
@@ -41,7 +41,7 @@ block content
         .btn-group.btn-group-justified
           .btn-group
             form(action='/lists/#{list._id}?_method=DELETE', method='post')
-              button.btn.btn-primary.btn-success(type='submit') Delete
+              button.btn.btn-primary.btn-danger(type='submit') Delete
           .btn-group
             a.btn.btn-primary(href='/lists') Back
           .btn-group
@@ -56,7 +56,7 @@ block content
           li.media
             .media-left
               a(href='#')
-                img.media-object(src='https://www.fillmurray.com/150/150')
+                img.media-object.avatar(src='#{comment.avatar}')
             .media-body
               h4.media-heading #{comment.postedBy} Says:
               p #{comment.text}

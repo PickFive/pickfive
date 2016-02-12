@@ -34,7 +34,6 @@ module.exports = (model) => {
       imageFour: req.body.imageFour,
       itemFive: req.body.itemFive,
       imageFive: req.body.imageFive,
-      image: req.body.image,
       category: req.body.category,
       owner: req.user
       })
@@ -93,7 +92,7 @@ module.exports = (model) => {
   const createComment = (req, res, next) => {
     model.findById(req.params.id)
     .then(function(list) {
-      list.comments.push({text: req.body.commentsText, postedBy: req.user.local.username})
+      list.comments.push({text: req.body.commentsText, postedBy: req.user.local.username, avatar: req.user.image})
       console.log('trying to save comment')
       return list.save()
     }).then(function(saved) {

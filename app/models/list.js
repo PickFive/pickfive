@@ -23,7 +23,8 @@ var listSchema = new mongoose.Schema({
     comments: [{
       text: String,
       date: Date,
-      postedBy: String
+      postedBy: String,
+      avatar: String
     }],
     owner: {
       type: mongoose.Schema.ObjectId,
