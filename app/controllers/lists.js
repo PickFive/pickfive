@@ -66,10 +66,15 @@ module.exports = (model) => {
     .then(function(list) {
       list.title = req.body.title,
       list.itemOne = req.body.itemOne,
+      list.imageOne = req.body.imageOne,
       list.itemTwo = req.body.itemTwo,
+      list.imageTwo = req.body.imageTwo,
       list.itemThree = req.body.itemThree,
+      list.imageThree = req.body.imageThree,
       list.itemFour = req.body.itemFour,
-      list.itemFive = req.body.itemFive
+      list.imageFour = req.body.imageFour,
+      list.itemFive = req.body.itemFive,
+      list.imageFive = req.body.imageFive
       return list.save()
     }).then(function(saved) {
       res.redirect('/lists');
