@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
      res.render('index', {title: 'Raive', lists: lists});
    }, function (err) {
      return next(err);
-   }); 
+   });
 });
 
 // Sign Up / Sign In Routes
@@ -41,6 +41,10 @@ router.post('/signin', passport.authenticate('local-login', {
 router.get('/signout', function (req, res, next) {
   req.logout();
   res.redirect('/');
+});
+
+router.get('/getStarted', function (req, res, next) {
+  res.render('lists/start');
 });
 
 module.exports = router;

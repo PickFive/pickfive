@@ -20,9 +20,10 @@ block content
                 option(value='sports') Sports
                 option(value='entertainment') Entertainment
                 option(value='Miscellaneous') Miscellaneous
+
             .form-group
               label(for='username') Username
-              input.form-control(type='text', name='username', value='#{currentUser.local.username}')
+              input.form-control(type='text', class='username', name='username', value='#{currentUser.local.username}')
 
             .form-group
               label(for='password') New Password

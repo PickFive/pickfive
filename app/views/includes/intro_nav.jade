@@ -4,7 +4,10 @@ nav.navbar.navbar-transparent.navbar-fixed-top
       .navbar-header
           a.navbar-brand(href='/') Raive
         ul.nav.navbar-nav.navbar-right
+          li
+              a(href='/getStarted') Getting Started
           if currentUser
+
             li
               a(href='/lists/feed') Feed
             li.navbar-left
@@ -14,7 +17,9 @@ nav.navbar.navbar-transparent.navbar-fixed-top
             li
               a(href='/signout') Sign Out
           else
+
             li
               a(href='/signup') Sign Up
             li
               a(href='/signin') Sign In
+

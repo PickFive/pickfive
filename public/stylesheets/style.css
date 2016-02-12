@@ -5975,3 +5975,7 @@ div.bootcards-list {
   background: rgba(0, 0, 0, 0.3) !important;
   border-radius: 20px;
   text-align: left; }
+
+.getStarted {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
