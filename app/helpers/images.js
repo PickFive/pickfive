@@ -1,10 +1,10 @@
 var api = require('gettyimages-api');
 
 var creds = {
-  apiKey: 'a3ggc2uuvnn5azhgasqj2y6c',
-  apiSecret: 'VECCHBfCjafHxzHEUKE8pCRS4jpMvaGtdP6JTzkUQdMcz',
-  username: 'd2xdy2',
-  password: 'bmwUSA3433'
+  apiKey: process.env.GETTY_API_KEY,
+  apiSecret: process.env.GETTY_API_APP_SECRET,
+  username: process.env.GETTY_API_USERNAME,
+  password: process.env.GETTY_API_PASSWORD
 }
 
 var client = new api(creds);
