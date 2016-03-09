@@ -3,12 +3,13 @@
   "description": "",
   "main": "",
   "authors": [
-    "Joshua Sandlin <joshua.sandlin@gmail.com>"
+    "Joshua Sandlin <joshua.sandlin@gmail.com>",
+    "Steven Smith <stevewillsmith@gmail.com>"
   ],
   "license": "MIT",
   "homepage": "https://github.com/Raive/raive",
   "moduleType": [],
-  "private": true,
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
